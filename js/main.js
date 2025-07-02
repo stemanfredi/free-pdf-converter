@@ -88,47 +88,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Handle download button clicks
 function handleDownload() {
-    // Show a message since the .exe file isn't available yet
-    const downloadMessage = document.createElement('div');
-    downloadMessage.innerHTML = `
-        <div style="
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        ">
-            <h3 style="color: #e74c3c; margin-bottom: 1rem;">Download Coming Soon!</h3>
-            <p style="color: #666; margin-bottom: 1.5rem;">The .exe file will be available here once you provide it. This is just a preview of your landing page.</p>
-            <button onclick="this.parentElement.parentElement.remove()" style="
-                background: #e74c3c;
-                color: white;
-                border: none;
-                padding: 0.75rem 1.5rem;
-                border-radius: 25px;
-                cursor: pointer;
-                font-weight: 600;
-            ">Close</button>
-        </div>
-        <div style="
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        " onclick="this.parentElement.remove()"></div>
-    `;
+    // Create a temporary link element to trigger download
+    const link = document.createElement('a');
+    link.href = 'assets/FreePDFConverter.exe';
+    link.download = 'FreePDFConverter.exe';
     
-    document.body.appendChild(downloadMessage);
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optional: Track download analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'download', {
+            'event_category': 'file',
+            'event_label': 'FreePDFConverter.exe'
+        });
+    }
 }
 
 // Add some interactive effects for better user experience

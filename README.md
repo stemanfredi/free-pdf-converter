@@ -56,9 +56,9 @@ The site emphasizes that the PDF converter is:
 
 ### Adding the .exe File
 
-1. Place your `pdf-converter.exe` file in the `assets/` folder
-2. Update the download buttons in both HTML files to link to `assets/pdf-converter.exe`
-3. Update file size and version information in `download.html`
+1. Place your `FreePDFConverter.exe` file in the `assets/` folder
+2. The download buttons are already configured to link to `assets/FreePDFConverter.exe`
+3. Update file size and version information in `download.html` if needed
 
 ### Updating Content
 
@@ -91,8 +91,8 @@ The site emphasizes that the PDF converter is:
 
 When you're ready to add the .exe file:
 
-1. Replace the `handleDownload()` function in `main.js` with actual download logic
-2. Update file information in the download page
+1. Simply place `FreePDFConverter.exe` in the `assets/` folder - downloads will work immediately
+2. Update file information in the download page if needed
 3. Consider adding download analytics if needed
 4. Add virus scan certificates or security badges if desired
 
